@@ -1,4 +1,4 @@
-# af_rmtp_repo 12345 
+# af_rmtp_repo XXX
 
 Application Frameworks - Research Management Tool Project Repository
 
