@@ -1,4 +1,4 @@
-# af_rmtp_repo TEST
+# af_rmtp_repo
 Application Frameworks - Research Management Tool Project Repository
 
 This repository manages Research Management Tool Project of the Application Framework module.
