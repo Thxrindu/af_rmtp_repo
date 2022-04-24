@@ -1,4 +1,4 @@
-# af_rmtp_repo
+# af_rmtp_repo BUTTERFLY
 
 Application Frameworks - Research Management Tool Project Repository
 
