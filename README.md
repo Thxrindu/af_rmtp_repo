@@ -1,5 +1,3 @@
-# af_rmtp_repo 12345 
-
 Application Frameworks - Research Management Tool Project Repository
 
 This repository manages Research Management Tool Project of the Application Framework module.
