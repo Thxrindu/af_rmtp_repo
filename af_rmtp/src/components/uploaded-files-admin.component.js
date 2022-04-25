@@ -38,9 +38,15 @@ const FilesList = (props) => {
   };
 
   const deleteFile = async (id) => {
-    axios.delete('http://localhost:5000/admin/file-delete/'+id)
+    try{
+    axios.delete(`${API_URL}/file-delete/${id}`)
     .then(response => { console.log(response.data)});
     window.location.reload(true);
+  }catch (error) {
+      if (error.response && error.response.status === 400) {
+        setErrorMsg('Error while deleting file. Try again later');
+      }
+    }
   };
 
 
