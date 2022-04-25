@@ -6,17 +6,17 @@ const Router = require('express').Router();
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, cb) {
-      cb(null, './files');
+      cb(null, './AdminFiles');
     },
     filename(req, file, cb) {
       cb(null, `${new Date().getTime()}_${file.originalname}`);
     }
   }),
   limits: {
-    fileSize: 1000000 // max file size 1MB = 1000000 bytes
+    fileSize: 10000000 // max file size 10MB = 1000000 bytes
   },
   fileFilter(req, file, cb) {
-    if (!file.originalname.match(/\.(jpeg|jpg|png|pdf|doc|docx|xlsx|xls)$/)) {
+    if (!file.originalname.match(/\.(jpeg|jpg|png|pdf|doc|docx|xlsx|xls|ppt|pptx)$/)) {
       return cb(
         new Error(
           'only upload files with jpg, jpeg, png, pdf, doc, docx, xslx, xls format.'
