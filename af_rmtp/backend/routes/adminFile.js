@@ -2,6 +2,7 @@ const path = require('path');
 const multer = require('multer');
 const File = require('../models/adminFile');
 const Router = require('express').Router();
+const ObjectId = require('mongodb').ObjectID;
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -63,6 +64,27 @@ Router.get('/getAllFiles', async (req, res) => {
   } catch (error) {
     res.status(400).send('Error while getting list of files. Try again later.');
   }
+});
+
+Router.get('/getFile/:id', async (req, res) => {
+  try {
+    const file = await File.findById(req.params.id);
+    res.send(file);
+  } catch (error) {
+    res.status(400).send('Error while getting the file. Try again later.');
+  }
+});
+
+Router.route('/update/:id').post((req, res) => {
+  File.findById(req.params.id)
+    .then(file => {
+      file.title = req.body.title;
+      file.description = req.body.description;
+      file.save()
+        .then(() => res.json('File updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 Router.get('/download/:id', async (req, res) => {
