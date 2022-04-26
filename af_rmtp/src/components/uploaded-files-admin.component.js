@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import download from 'downloadjs';
 import axios from 'axios';
 import { API_URL } from '../utils/constants';
+import EditAdminFile from './admin-doc-edit.component';
+import { Link } from 'react-router-dom';
+
 
 const FilesList = (props) => {
   const [filesList, setFilesList] = useState([]);
@@ -61,6 +64,7 @@ const FilesList = (props) => {
             <th style={{width:"300px"}}>Description</th>
             <th style={{width:"300px"}}>Download File</th>
             <th style={{width:"300px"}}>Delete File</th>
+            <th style={{width:"300px"}}>Update File</th>
           </tr>
         ):(<tr></tr>)}
         </thead>
@@ -89,6 +93,13 @@ const FilesList = (props) => {
                       }
                     >
                       Delete
+                    </a>
+                  </td>
+                  <td>
+                  <a style={{color:"red"}}
+                      href="#/"
+                    >
+                      <Link to={"/admin-file-edit/"+_id} component={EditAdminFile}>Update</Link>
                     </a>
                   </td>
                 </tr>
